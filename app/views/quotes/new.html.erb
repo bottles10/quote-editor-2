@@ -1,0 +1,9 @@
+<div class="mb-12">
+    <%= link_to sanitize("&larr; Back to quotes"), quotes_path, class: "inline-block mb-4 text-gray-400" %>
+    <h1 class="header">New quote</h1>
+</div>
+
+
+<div class="p-3 border border-gray-300 rounded">
+    <%= render partial: "form", locals: { quote: @quote } %>
+</div>
