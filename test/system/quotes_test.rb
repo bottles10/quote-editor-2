@@ -10,9 +10,9 @@ class QuotesTest < ApplicationSystemTestCase
   assert_selector "h1", text: "Quotes"
 
   click_on "New Quote"
-  assert_selector "h1", text: "New quote"
-
   fill_in "Name", with: "Capybara quote"
+  
+  assert_selector "h1", text: "Quotes"
   click_on "Create Quote"
 
   assert_selector "h1", text: "Quotes"
@@ -31,9 +31,9 @@ class QuotesTest < ApplicationSystemTestCase
   assert_selector "h1", text: "Quotes"
 
   click_on "Edit", match: :first
-  assert_text "Edit quote"
-
   fill_in "Name", with: "Updated quote"
+  
+  assert_selector "h1", text: "Quotes"
   click_on "Update Quote"
 
   assert_selector "h1", text: "Quotes"

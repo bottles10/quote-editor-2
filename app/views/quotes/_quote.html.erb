@@ -1,7 +1,11 @@
-<div class="p-3 flex items-center justify-between border border-gray-300 rounded">
-    <p><%= link_to quote.name, quote_path(quote), class: "font-medium text-purple-800" %></p>
-    <div class="flex items-center gap-3">
-        <span><%= button_to "Delete", quote, method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn actions" %></span>
-        <span><%= link_to "Edit", edit_quote_path(quote), class: "btn actions bg-purple-500 text-purple-50" %></span>
+<%= turbo_frame_tag quote do %>
+    <div class="p-3 flex items-center justify-between border border-gray-300 rounded">
+        <p><%= link_to quote.name, quote_path(quote), 
+                                    data: { turbo_frame: "_top" },
+                                    class: "font-medium text-purple-800" %></p>
+        <div class="flex items-center gap-3">
+            <span><%= button_to "Delete", quote, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn actions" %></span>
+            <span><%= link_to "Edit", edit_quote_path(quote), class: "btn actions bg-purple-500 text-purple-50" %></span>
+        </div>
     </div>
-</div>
+<% end %>

@@ -4,6 +4,9 @@
 </div>
 
 
-<div class="p-3 border border-gray-300 rounded">
-    <%= render partial: "form", locals: { quote: @quote } %>
-</div>
+<%= turbo_frame_tag @quote do %>
+    <div class="p-3 border border-gray-300 rounded space-y-4">
+        <%= render partial: "form", locals: { quote: @quote } %>
+        <%= link_to sanitize("&times; Cancel"), quotes_path, class: "btn actions" %>
+    </div>
+<% end %>
