@@ -1,4 +1,6 @@
 <%= form_with(model: quote) do |form| %>
+    <%= error_messages_for(quote) %>
+    
     <div class="flex items-center">
         <div class="grow">
             <%= form.label :name, class: "font-medium text-gray-700" %>
