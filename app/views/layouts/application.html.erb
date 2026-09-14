@@ -24,8 +24,9 @@
   </head>
 
   <body>
-  <main class="max-w-4xl mx-auto mt-28 p-5">
-    <%= yield %>
-  </main>
+    <%= render partial: "layouts/shared/navbar" %>
+    <main class="max-w-4xl mx-auto mt-28 p-5">
+      <%= yield %>
+    </main>
   </body>
 </html>
