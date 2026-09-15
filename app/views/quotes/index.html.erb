@@ -10,7 +10,11 @@
 
 <hr class="muted mb-12">
 
-<%= turbo_frame_tag Quote.new %>
+<%= turbo_frame_tag Quote.new do %>
+    <% if @quotes.none? %>
+        <%= render partial: "empty_state" %>
+    <% end %>
+<% end %>
 
 <div id="quotes" class="flex flex-col gap-3">
     <%= render @quotes %>
