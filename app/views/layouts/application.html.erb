@@ -24,7 +24,13 @@
   </head>
 
   <body>
-    <%= render partial: "layouts/shared/navbar" %>
+    <header class="sticky top-0 h-20">
+      <%= render partial: "layouts/shared/navbar" %>
+
+      <div id="flash" class="w-max mt-2 ml-auto px-6">
+        <%= render partial: "layouts/shared/flash" %>
+      </div>
+    </header>
     <main class="max-w-4xl mx-auto mt-28 p-5">
       <%= yield %>
     </main>
