@@ -1,5 +1,8 @@
 <div class="p-3 text-center border border-dashed border-gray-300 space-y-4">
     <p class="header font-medium text-4xl">You don't have any quotes yet!</p>
 
-    <%= link_to sanitize("&plus; Add quote"), new_quote_path, class: "btn btn-primary" %>
+    <%= link_to sanitize("&plus; Add quote"), new_quote_path,
+                                            data: { turbo_frame: dom_id(Quote.new) },
+                                            class: "btn btn-primary" 
+    %>
 </div>
