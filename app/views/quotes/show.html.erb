@@ -1,9 +1,12 @@
-<div class="mb-12">
+<div class="mb-8">
     <%= link_to sanitize("&larr; Back to quotes"), quotes_path, class: "inline-block mb-4 text-gray-400" %>
+</div>
+
+<div class="mb-4 flex items-center justify-between">
     <h1 class="header"><%= @quote.name %></h1>
+    <%= link_to "New date", new_quote_line_item_date_path(@quote), class: "btn btn-primary" %>
 </div>
 
+<hr class="muted mb-12 ">
 
-<div class="p-3 border border-gray-300 rounded">
-    <p>This page is empty for now.</p>
-</div>
+<%= render @line_item_dates, quote: @quote %>
