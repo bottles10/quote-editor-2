@@ -9,5 +9,8 @@
 #   end
 
 
+puts "\n === Dropping the database and prepare ===\n"
+system("rails db:prepare")
+
 puts "\n === seeding database from fixtures === \n"
 system("rails db:fixtures:load")
