@@ -8,7 +8,7 @@
         </div>
 
         <div class="self-end-safe">
-            <%= form.submit class: "btn btn-primary rounded-l-none" %>
+            <%= form.submit line_item_date.new_record? ? "Create date" : "Update date", class: "btn btn-primary rounded-l-none" %>
         </div>
     </div>
 <% end %>
