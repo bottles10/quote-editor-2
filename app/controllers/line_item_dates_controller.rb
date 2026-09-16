@@ -12,6 +12,7 @@ class LineItemDatesController < ApplicationController
     respond_to do |format|
       if @line_item_date.save
         format.html { redirect_to @quote, notice: "Date created successfully." }
+        format.turbo_stream { flash.now[:notice] = "Date created successfully." }
         format.json { render json: @line_item_date, status: :created, location: @quote }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -27,6 +28,7 @@ class LineItemDatesController < ApplicationController
     respond_to do |format|
       if @line_item_date.update(line_item_date_params)
         format.html { redirect_to @quote, notice: "Date was updated successfully." }
+        format.turbo_stream { flash.now[:notice] = "Date was updated successsfully." }
         format.json { render json: @line_item_date, status: :ok, location: @quote }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -40,6 +42,7 @@ class LineItemDatesController < ApplicationController
     
     respond_to do |format|
       format.html { redirect_to @quote, notice: "Date was successfully deleted." }
+      format.turbo_stream { flash.now[:notice] = "Date was successfully deleted." }
       format.json { head :no_content }
     end
   end

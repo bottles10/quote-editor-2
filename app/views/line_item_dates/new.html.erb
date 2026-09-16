@@ -3,7 +3,9 @@
     <h1 class="header">New date</h1>
 </div>
 
-<div class="mb-12 p-3 border border-gray-300 rounded space-y-4">
-    <%= render partial: "form", locals: { quote: @quote, line_item_date: @line_item_date } %>
-    <%= link_to sanitize("&times; Cancel"), quote_path(@quote), class: "btn actions" %>
-</div>
+<%= turbo_frame_tag @line_item_date do %>
+    <div class="mb-12 p-3 border border-gray-300 rounded space-y-4">
+        <%= render partial: "form", locals: { quote: @quote, line_item_date: @line_item_date } %>
+        <%= link_to sanitize("&times; Cancel"), quote_path(@quote), class: "btn actions" %>
+    </div>
+<% end %>
