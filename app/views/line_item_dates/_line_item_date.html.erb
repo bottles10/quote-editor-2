@@ -1,14 +1,46 @@
 <%= turbo_frame_tag line_item_date do %>
-    <div class="mb-4 p-3 flex items-center justify-between border border-gray-300 rounded">
-        <h2><%= l(line_item_date.date, format: :long) %></h2>
-        <div class="flex items-center gap-3">
-            <%= link_to "Edit", [ :edit, quote, line_item_date ], class: "btn actions" %>
-            <%= button_to "Delete", 
-                                [ quote, line_item_date ],
-                                method: :delete,
-                                data: { turbo_confirm: "Are you sure?" },
-                                class: "btn actions" 
-            %>
+    <div class="mb-4 p-3 border border-gray-300 rounded">
+        <div class="flex items-center justify-between">
+            <h2 class="header font-bold text-xl"><%= l(line_item_date.date, format: :long) %></h2>
+            <div class="flex items-center gap-3">
+                <%= link_to "Edit", [ :edit, quote, line_item_date ], class: "btn actions" %>
+                <%= button_to "Delete", 
+                                    [ quote, line_item_date ],
+                                    method: :delete,
+                                    data: { turbo_confirm: "Are you sure?" },
+                                    class: "btn actions" 
+                %>
+            </div>
+        </div>
+        <hr class="muted my-2 border-dashed">
+
+        <div class="overflow-x-auto">
+            <table class="table-auto w-full">
+                <thead>
+                    <tr>
+                        <th colspan="5">
+                            <div class="grid grid-cols-5">
+                                <div class="col-span-2 text-left">Name</div>
+                                <div class="text-center">Quantity</div>
+                                <div class="text-center">Unit Price</div>
+                                <div class="text-center"></div>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <%= render line_item_date.line_items, quote: quote, line_item_date: line_item_date %>    
+                </tbody>
+            </table>
+        </div>
+
+
+            <hr class="muted my-2 border-dashed">
+
+            <div class="text-center">
+                <%= link_to "Add item", [ :new, quote, line_item_date, :line_item ], class: "btn btn-primary" %>
+            </div>
         </div>
     </div>
 <% end %>
