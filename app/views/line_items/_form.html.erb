@@ -1,0 +1,32 @@
+<%= form_with(model: [ quote, line_item_date, line_item]) do |form| %>
+    <%= error_messages_for(line_item) %>
+
+    <div class="block sm:flex items-end gap-3">
+        <div class="grow">
+            <%= form.label :name, class: "inline-block font-medium" %>
+            <%= form.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class="flex-1 my-2 sm:my-0 flex items-end gap-3">
+            <div class="">
+                <%= form.label :unit_price, class: "inline-block w-max font-medium" %>
+                <%= form.number_field :unit_price, class: "form-control" %>
+            </div>
+ 
+            <div class="">
+                <%= form.label :quantity, class: "inline-block font-medium" %>
+                <%= form.number_field :quantity, class: "form-control" %>
+            </div>
+        </div>
+
+
+        <div class="grow shrink-0">
+            <%= form.label :description, class: "inline-block font-medium" %>
+            <%= form.text_field :description, class: "form-control" %>
+        </div>
+
+        <div class="self-end-safe my-4 sm:my-0">
+            <%= form.submit line_item.new_record? ? "Create item" : "Update item", class: "btn btn-primary" %>
+        </div>
+    </div>
+<% end %>

@@ -1,0 +1,8 @@
+<div class="mb-12">
+    <%= link_to sanitize("&larr; Back to quote"), quote_path(@quote), class: "inline-block mb-4 text-gray-400" %>
+    <h1 class="header">Edit item</h1>
+</div>
+
+<div>
+    <%= render partial: "form", locals: { quote: @quote, line_item_date: @line_item_date, line_item: @line_item} %>
+</div>

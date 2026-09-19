@@ -19,7 +19,7 @@
                 <thead>
                     <tr>
                         <th colspan="5">
-                            <div class="grid grid-cols-5">
+                            <div class="mb-1 grid grid-cols-5">
                                 <div class="col-span-2 text-left">Name</div>
                                 <div class="text-center">Quantity</div>
                                 <div class="text-center">Unit Price</div>
@@ -39,7 +39,11 @@
             <hr class="muted my-2 border-dashed">
 
             <div class="text-center">
-                <%= link_to "Add item", [ :new, quote, line_item_date, :line_item ], class: "btn btn-primary" %>
+                <%= link_to "Add item",
+                                    [ :new, quote, line_item_date, :line_item ], 
+                                    data: { turbo_frame: "_top" },
+                                    class: "btn btn-primary" 
+                %>
             </div>
         </div>
     </div>

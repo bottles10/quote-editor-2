@@ -21,7 +21,7 @@
                     <%= button_to "Delete", 
                                         [ quote, line_item_date, line_item],
                                         method: :delete,
-                                        data: { turbo_confirm: "Are you sure?" },
+                                        data: { turbo_confirm: "Are you sure?", turbo_frame: "_top" },
                                         class: "btn actions" 
                     %>
                 </div>
@@ -29,6 +29,7 @@
                 <div class="self-start">
                     <%= link_to "Edit", 
                                     [ :edit, quote, line_item_date, line_item ],
+                                    data: { turbo_frame: "_top" },
                                     class: "btn actions" 
                     %>
                 </div>

@@ -18,7 +18,7 @@
 }
 
 @utility form-control {
-    @apply w-full py-2 px-3 bg-gray-50 border border-gray-200 focus:border-purple-300 rounded outline-none;
+    @apply w-full py-2 px-3 bg-gray-50 text-gray-700 border border-gray-200 focus:border-purple-300 rounded outline-none caret-purple-800;
 }
 
 @utility header {
