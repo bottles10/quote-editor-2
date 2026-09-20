@@ -29,7 +29,7 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="<%= nested_dom_id(line_item_date, "line_items") %>">
                     <%= render line_item_date.line_items, quote: quote, line_item_date: line_item_date %>    
                 </tbody>
             </table>
@@ -38,10 +38,12 @@
 
             <hr class="muted my-2 border-dashed">
 
+            <%= turbo_frame_tag nested_dom_id(line_item_date, LineItem.new) %>
+
             <div class="text-center">
                 <%= link_to "Add item",
                                     [ :new, quote, line_item_date, :line_item ], 
-                                    data: { turbo_frame: "_top" },
+                                    data: { turbo_frame: nested_dom_id(line_item_date, LineItem.new) },
                                     class: "btn btn-primary" 
                 %>
             </div>

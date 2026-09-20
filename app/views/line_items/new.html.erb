@@ -3,6 +3,10 @@
     <h1 class="header">New Item</h1>
 </div>
 
-<div>
-    <%= render partial: "form", locals: { quote: @quote, line_item_date: @line_item_date, line_item: @line_item} %>
-</div>
+
+<%= turbo_frame_tag nested_dom_id(@line_item_date, LineItem.new) do %>
+    <div class="mb-12 p-3  border border-gray-300 rounded space-y-4">
+        <%= render partial: "form", locals: { quote: @quote, line_item_date: @line_item_date, line_item: @line_item} %>
+        <%= link_to sanitize("&times; Cancel"), quote_path(@quote), class: "btn actions" %>
+    </div>
+<% end %>

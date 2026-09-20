@@ -12,7 +12,8 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @quote, notice: "Item was successfully saved."}
+        format.html { redirect_to @quote, notice: "Item was successfully saved." }
+        format.turbo_stream { flash.now[:notice] = "Item was successfully saved." }
         format.json { render json: @line_item, status: :created, location: @quote }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -27,7 +28,8 @@ class LineItemsController < ApplicationController
   def update
     respond_to do |format|
       if @line_item.update(line_item_params)
-        format.html { redirect_to @quote, notice: "Item was successfully updated."}
+        format.html { redirect_to @quote, notice: "Item was successfully updated." }
+        format.turbo_stream { flash.now[:notice] = "Item was successfully updated." }
         format.json { render json: @line_item, status: :ok, location: @quote }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,6 +43,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to @quote, notice: "Item was successfully removed."}
+      format.turbo_stream {flash.now[:notice] = "Item was successfuly removed." }
       format.json { head :no_content }
     end
   end

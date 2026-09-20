@@ -1,40 +1,42 @@
-<tr>
+<tr id="<%= dom_id(line_item) %>">
     <td colspan="5">
-        <div class="grid grid-cols-5 space-y-4">
-            <div class="col-span-2 text-left text-gray-700">
-                <p class="font-medium"><%= line_item.name %></p>
-                <div class="font-serif text-sm">
-                    <%= line_item.description %>
+        
+        <%= turbo_frame_tag dom_id(line_item) do %>
+            <div class="grid grid-cols-5 space-y-4">
+                <div class="col-span-2 text-left text-gray-700">
+                    <p class="font-medium"><%= line_item.name %></p>
+                    <div class="font-serif text-sm">
+                        <%= line_item.description %>
+                    </div>
                 </div>
-            </div>
 
-            <div class="font-medium text-center text-gray-700">
-                <%= line_item.quantity%>
-            </div>
+                <div class="font-medium text-center text-gray-700">
+                    <%= line_item.quantity%>
+                </div>
 
-            <div class="font-medium text-center text-gray-700">
-                <%= line_item.unit_price%>
-            </div>
+                <div class="font-medium text-center text-gray-700">
+                    <%= line_item.unit_price%>
+                </div>
 
-            <div class="flex gap-3 justify-end-safe">
-                <div>
-                    <%= button_to "Delete", 
-                                        [ quote, line_item_date, line_item],
-                                        method: :delete,
-                                        data: { turbo_confirm: "Are you sure?", turbo_frame: "_top" },
+                <div class="flex gap-3 justify-end-safe">
+                    <div>
+                        <%= button_to "Delete", 
+                                            [ quote, line_item_date, line_item],
+                                            method: :delete,
+                                            data: { turbo_confirm: "Are you sure?" },
+                                            class: "btn actions" 
+                        %>
+                    </div>
+
+                    <div class="self-start">
+                        <%= link_to "Edit", 
+                                        [ :edit, quote, line_item_date, line_item ],
                                         class: "btn actions" 
-                    %>
-                </div>
+                        %>
+                    </div>
 
-                <div class="self-start">
-                    <%= link_to "Edit", 
-                                    [ :edit, quote, line_item_date, line_item ],
-                                    data: { turbo_frame: "_top" },
-                                    class: "btn actions" 
-                    %>
                 </div>
-
             </div>
-        </div>
+        <% end %>
     </td>
 </tr>
