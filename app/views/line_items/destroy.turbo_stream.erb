@@ -1,3 +1,7 @@
 <%= turbo_stream.remove @line_item %>
 
+<%= turbo_stream.update dom_id(@quote, :total) do %>
+    <%= render partial: "quotes/total", locals: { quote: @quote } %>
+<% end %>
+
 <%= render_turbo_stream_flash_messages %>

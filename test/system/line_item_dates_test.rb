@@ -1,6 +1,7 @@
 require "application_system_test_case"
 
 class LineItemDatesTest < ApplicationSystemTestCase
+  include ActionView::Helpers::NumberHelper
   setup do
     login_as users(:accountant)
     @quote = quotes(:first)
@@ -46,5 +47,6 @@ class LineItemDatesTest < ApplicationSystemTestCase
 
     assert_selector "h1", text: "First quote"
     assert_no_text I18n.l(Date.current, format: :long)
+    assert_text number_to_currency(@quote.total_price)
   end
 end
