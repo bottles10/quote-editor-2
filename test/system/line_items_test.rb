@@ -13,6 +13,10 @@ class LineItemsTest < ApplicationSystemTestCase
     visit quote_path(@quote)
   end
 
+  test "#total_price returns the total price of the line item" do
+    assert_equal 250, line_items(:catering_today).total_price
+  end
+
   test "Creating a new line item" do
     assert_selector "h1", text: "First quote"
 
