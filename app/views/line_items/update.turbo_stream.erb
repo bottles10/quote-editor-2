@@ -1,4 +1,4 @@
-<%= turbo_stream.replace @line_item do %>
+<%= turbo_stream.replace dom_id(@line_item, "row") do %>
     <%= render @line_item, quote: @quote, line_item_date: @line_item_date %>
 <% end %>
 

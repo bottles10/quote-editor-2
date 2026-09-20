@@ -1,4 +1,4 @@
-<tr id="<%= dom_id(line_item) %>">
+<tr id="<%= dom_id(line_item, "row") %>">
     <td colspan="5">
         
         <%= turbo_frame_tag dom_id(line_item) do %>
@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="font-medium text-center text-gray-700">
-                    <%= line_item.unit_price%>
+                    <%= number_to_currency(line_item.unit_price) %>
                 </div>
 
                 <div class="flex gap-3 justify-end-safe">
